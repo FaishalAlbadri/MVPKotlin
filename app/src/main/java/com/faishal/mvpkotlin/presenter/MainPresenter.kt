@@ -3,10 +3,14 @@ package com.faishal.mvpkotlin.presenter
 import com.faishal.mvpkotlin.repository.MainDataResource
 import com.faishal.mvpkotlin.repository.MainRepository
 
-class MainPresenter(mainRepository: MainRepository) : MainContract.mainPresenter {
+class MainPresenter : MainContract.mainPresenter {
 
-    val mainRepository: MainRepository = mainRepository
+    private var mainRepository: MainRepository
     lateinit var mainView: MainContract.mainView
+
+    constructor(mainRepository: MainRepository) {
+        this.mainRepository = mainRepository
+    }
 
 
     override fun hitung(satu: Int, dua: Int, mode: String) {
